@@ -1,0 +1,86 @@
+	.file	"Cpp_Basics.cpp"
+	.intel_syntax noprefix
+	.text
+	.def	__main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+.LC0:
+	.ascii " Argument : \0"
+.LC1:
+	.ascii " \0"
+	.text
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+.LFB2070:
+	push	rbp
+	.seh_pushreg	rbp
+	mov	rbp, rsp
+	.seh_setframe	rbp, 0
+	sub	rsp, 48
+	.seh_stackalloc	48
+	.seh_endprologue
+	mov	DWORD PTR 16[rbp], ecx
+	mov	QWORD PTR 24[rbp], rdx
+	call	__main
+	mov	DWORD PTR -4[rbp], 0
+	jmp	.L2
+.L3:
+	lea	rax, .LC0[rip]
+	mov	rdx, rax
+	mov	rax, QWORD PTR .refptr._ZSt4cout[rip]
+	mov	rcx, rax
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	rcx, rax
+	mov	eax, DWORD PTR -4[rbp]
+	add	eax, 1
+	mov	edx, eax
+	call	_ZNSolsEi
+	mov	rcx, rax
+	lea	rax, .LC1[rip]
+	mov	rdx, rax
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	rcx, rax
+	mov	eax, DWORD PTR -4[rbp]
+	cdqe
+	lea	rdx, 0[0+rax*8]
+	mov	rax, QWORD PTR 24[rbp]
+	add	rax, rdx
+	mov	rax, QWORD PTR [rax]
+	mov	rdx, rax
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	mov	rcx, rax
+	mov	rax, QWORD PTR .refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_[rip]
+	mov	rdx, rax
+	call	_ZNSolsEPFRSoS_E
+	add	DWORD PTR -4[rbp], 1
+.L2:
+	mov	eax, DWORD PTR -4[rbp]
+	cmp	eax, DWORD PTR 16[rbp]
+	jl	.L3
+	mov	eax, 0
+	add	rsp, 48
+	pop	rbp
+	ret
+	.seh_endproc
+	.section .rdata,"dr"
+_ZNSt8__detail30__integer_to_chars_is_unsignedIjEE:
+	.byte	1
+_ZNSt8__detail30__integer_to_chars_is_unsignedImEE:
+	.byte	1
+_ZNSt8__detail30__integer_to_chars_is_unsignedIyEE:
+	.byte	1
+	.ident	"GCC: (GNU) 13.1.0"
+	.def	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc;	.scl	2;	.type	32;	.endef
+	.def	_ZNSolsEi;	.scl	2;	.type	32;	.endef
+	.def	_ZNSolsEPFRSoS_E;	.scl	2;	.type	32;	.endef
+	.section	.rdata$.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, "dr"
+	.globl	.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.linkonce	discard
+.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_:
+	.quad	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+	.section	.rdata$.refptr._ZSt4cout, "dr"
+	.globl	.refptr._ZSt4cout
+	.linkonce	discard
+.refptr._ZSt4cout:
+	.quad	_ZSt4cout
